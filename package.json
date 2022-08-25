@@ -1,0 +1,14 @@
+{
+  "name": "ionic",
+  "private": false,
+  "version": "1.1.1",
+  "codename": "Copenhagen",
+  "repository": {
+    "url": "git://github.com/incentfit/ionic-v1.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}

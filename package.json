@@ -6,9 +6,10 @@
   "repository": {
     "url": "git://github.com/incentfit/ionic-v1.git"
   },
+  "type": "commonjs",
   "exports": {
-    "./ionic": "./js/ionic.js",
-    "./angular": "./js/ionic-angular",
+    ".": "./js/ionic.js",
+    "./angular": "./js/ionic-angular.js",
     "./css": "./css/ionic.min.css"
   },
   "licenses": [

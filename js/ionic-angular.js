@@ -1,4 +1,9 @@
 /*!
+**************************************************
+IF NOTE: THIS FILE IS FORKED FROM THE ORIGINAL
+historyRoot is set to false in MenuClose directive
+**************************************************
+
  * Copyright 2015 Drifty Co.
  * http://drifty.com/
  *
@@ -933,7 +938,7 @@ function($rootScope, $state, $location, $window, $timeout, $ionicViewSwitcher, $
 
           // check if there is a new forward view within the same history
           if (forwardView && currentView.stateId !== forwardView.stateId &&
-             currentView.historyId === forwardView.historyId) {
+              currentView.historyId === forwardView.historyId) {
             // they navigated to a new view but the stack already has a forward view
             // since its a new view remove any forwards that existed
             tmp = getHistoryById(forwardView.historyId);
@@ -1307,7 +1312,7 @@ function($rootScope, $state, $location, $window, $timeout, $ionicViewSwitcher, $
     /**
      * @ngdoc method
      * @name $ionicHistory#clearCache
-	 * @return promise
+   * @return promise
      * @description Removes all cached views within every {@link ionic.directive:ionNavView}.
      * This both removes the view element from the DOM, and destroy it's scope.
      */
@@ -1602,7 +1607,7 @@ function($rootScope, $state, $location, $document, $ionicPlatform, $ionicHistory
  * @returns {boolean}
  */
 
- /**
+  /**
   * @ngdoc method
   * @name $ionicConfigProvider#views.swipeBackEnabled
   * @description  By default on iOS devices, swipe to go back functionality is enabled by default.
@@ -2582,7 +2587,7 @@ function($rootScope, $ionicBody, $compile, $timeout, $ionicPlatform, $ionicTempl
       }
 
       modalEl.addClass('ng-enter active')
-             .removeClass('ng-leave ng-leave-active');
+              .removeClass('ng-leave ng-leave-active');
 
       self._isShown = true;
       self._deregisterBackButton = $ionicPlatform.registerBackButtonAction(
@@ -2642,7 +2647,7 @@ function($rootScope, $ionicBody, $compile, $timeout, $ionicPlatform, $ionicTempl
       $timeout(function() {
         if (self._isShown) return;
         modalEl.addClass('ng-leave-active')
-               .removeClass('ng-enter ng-enter-active active');
+                .removeClass('ng-enter ng-enter-active active');
 
         self.scope.$broadcast('$ionic.modalRemoved');
       }, 20, false);
@@ -3329,74 +3334,74 @@ var POPUP_TPL =
  *
  * ```js
  *angular.module('mySuperApp', ['ionic'])
- *.controller('PopupCtrl',function($scope, $ionicPopup, $timeout) {
- *
- * // Triggered on a button click, or some other target
- * $scope.showPopup = function() {
- *   $scope.data = {};
- *
- *   // An elaborate, custom popup
- *   var myPopup = $ionicPopup.show({
- *     template: '<input type="password" ng-model="data.wifi">',
- *     title: 'Enter Wi-Fi Password',
- *     subTitle: 'Please use normal things',
- *     scope: $scope,
- *     buttons: [
- *       { text: 'Cancel' },
- *       {
- *         text: '<b>Save</b>',
- *         type: 'button-positive',
- *         onTap: function(e) {
- *           if (!$scope.data.wifi) {
- *             //don't allow the user to close unless he enters wifi password
- *             e.preventDefault();
- *           } else {
- *             return $scope.data.wifi;
- *           }
- *         }
- *       }
- *     ]
- *   });
- *
- *   myPopup.then(function(res) {
- *     console.log('Tapped!', res);
- *   });
- *
- *   $timeout(function() {
- *      myPopup.close(); //close the popup after 3 seconds for some reason
- *   }, 3000);
- *  };
- *
- *  // A confirm dialog
- *  $scope.showConfirm = function() {
- *    var confirmPopup = $ionicPopup.confirm({
- *      title: 'Consume Ice Cream',
- *      template: 'Are you sure you want to eat this ice cream?'
- *    });
- *
- *    confirmPopup.then(function(res) {
- *      if(res) {
- *        console.log('You are sure');
- *      } else {
- *        console.log('You are not sure');
- *      }
- *    });
- *  };
- *
- *  // An alert dialog
- *  $scope.showAlert = function() {
- *    var alertPopup = $ionicPopup.alert({
- *      title: 'Don\'t eat that!',
- *      template: 'It might taste good'
- *    });
- *
- *    alertPopup.then(function(res) {
- *      console.log('Thank you for not eating my delicious ice cream cone');
- *    });
- *  };
- *});
- *```
- */
+  *.controller('PopupCtrl',function($scope, $ionicPopup, $timeout) {
+  *
+  * // Triggered on a button click, or some other target
+  * $scope.showPopup = function() {
+  *   $scope.data = {};
+  *
+  *   // An elaborate, custom popup
+  *   var myPopup = $ionicPopup.show({
+  *     template: '<input type="password" ng-model="data.wifi">',
+  *     title: 'Enter Wi-Fi Password',
+  *     subTitle: 'Please use normal things',
+  *     scope: $scope,
+  *     buttons: [
+  *       { text: 'Cancel' },
+  *       {
+  *         text: '<b>Save</b>',
+  *         type: 'button-positive',
+  *         onTap: function(e) {
+  *           if (!$scope.data.wifi) {
+  *             //don't allow the user to close unless he enters wifi password
+  *             e.preventDefault();
+  *           } else {
+  *             return $scope.data.wifi;
+  *           }
+  *         }
+  *       }
+  *     ]
+  *   });
+  *
+  *   myPopup.then(function(res) {
+  *     console.log('Tapped!', res);
+  *   });
+  *
+  *   $timeout(function() {
+  *      myPopup.close(); //close the popup after 3 seconds for some reason
+  *   }, 3000);
+  *  };
+  *
+  *  // A confirm dialog
+  *  $scope.showConfirm = function() {
+  *    var confirmPopup = $ionicPopup.confirm({
+  *      title: 'Consume Ice Cream',
+  *      template: 'Are you sure you want to eat this ice cream?'
+  *    });
+  *
+  *    confirmPopup.then(function(res) {
+  *      if(res) {
+  *        console.log('You are sure');
+  *      } else {
+  *        console.log('You are not sure');
+  *      }
+  *    });
+  *  };
+  *
+  *  // An alert dialog
+  *  $scope.showAlert = function() {
+  *    var alertPopup = $ionicPopup.alert({
+  *      title: 'Don\'t eat that!',
+  *      template: 'It might taste good'
+  *    });
+  *
+  *    alertPopup.then(function(res) {
+  *      console.log('Thank you for not eating my delicious ice cream cone');
+  *    });
+  *  };
+  *});
+  *```
+  */
 
 IonicModule
 .factory('$ionicPopup', [
@@ -5270,11 +5275,11 @@ angular.module('ngIOS9UIWebViewPatch', ['ng']).config(['$provide', function($pro
  */
 IonicModule.config(['$provide', function($provide) {
   $provide.decorator('$compile', ['$delegate', function($compile) {
-     $compile.$$addScopeInfo = function $$addScopeInfo($element, scope, isolated, noTemplate) {
-       var dataName = isolated ? (noTemplate ? '$isolateScopeNoTemplate' : '$isolateScope') : '$scope';
-       $element.data(dataName, scope);
-     };
-     return $compile;
+      $compile.$$addScopeInfo = function $$addScopeInfo($element, scope, isolated, noTemplate) {
+        var dataName = isolated ? (noTemplate ? '$isolateScopeNoTemplate' : '$isolateScope') : '$scope';
+        $element.data(dataName, scope);
+      };
+      return $compile;
   }]);
 }]);
 
@@ -5848,14 +5853,14 @@ function($scope, $attrs, $element, $timeout) {
  * {% endraw %}
  * ```
 
- * ```js
- * function MyCtrl($scope, $ionicListDelegate) {
- *   $scope.showDeleteButtons = function() {
- *     $ionicListDelegate.showDelete(true);
- *   };
- * }
- * ```
- */
+  * ```js
+  * function MyCtrl($scope, $ionicListDelegate) {
+  *   $scope.showDeleteButtons = function() {
+  *     $ionicListDelegate.showDelete(true);
+  *   };
+  * }
+  * ```
+  */
 IonicModule.service('$ionicListDelegate', ionic.DelegateService([
   /**
    * @ngdoc method
@@ -7363,13 +7368,13 @@ IonicModule
   '$ionicScrollDelegate',
   '$ionicHistory',
 function($scope,
-         scrollViewOptions,
-         $timeout,
-         $window,
-         $location,
-         $document,
-         $ionicScrollDelegate,
-         $ionicHistory) {
+          scrollViewOptions,
+          $timeout,
+          $window,
+          $location,
+          $document,
+          $ionicScrollDelegate,
+          $ionicHistory) {
 
   var self = this;
   // for testing
@@ -8740,9 +8745,9 @@ function($scope, $element, $attrs, $compile, $rootScope) {
 }]);
 
 /*
- * We don't document the ionActionSheet directive, we instead document
- * the $ionicActionSheet service
- */
+  * We don't document the ionActionSheet directive, we instead document
+  * the $ionicActionSheet service
+  */
 IonicModule
 .directive('ionActionSheet', ['$document', function($document) {
   return {
@@ -10863,8 +10868,8 @@ IonicModule
     scope: true,
     compile: function($element, $attrs) {
       var isAnchor = isDefined($attrs.href) ||
-                     isDefined($attrs.ngHref) ||
-                     isDefined($attrs.uiSref);
+                      isDefined($attrs.ngHref) ||
+                      isDefined($attrs.uiSref);
       var isComplexItem = isAnchor ||
         //Lame way of testing, but we have to know at compile what to do with the element
         /ion-(delete|option|reorder)-button/i.test($element.html());
@@ -11490,7 +11495,7 @@ IonicModule
         var sideMenuCtrl = $element.inheritedData('$ionSideMenusController');
         if (sideMenuCtrl) {
           $ionicHistory.nextViewOptions({
-            historyRoot: true,
+            historyRoot: false,
             disableAnimate: true,
             expire: 300
           });
@@ -11572,9 +11577,9 @@ IonicModule
 });
 
 /*
- * We don't document the ionModal directive, we instead document
- * the $ionicModal service
- */
+  * We don't document the ionModal directive, we instead document
+  * the $ionicModal service
+  */
 IonicModule
 .directive('ionModal', [function() {
   return {
@@ -12291,9 +12296,9 @@ IonicModule
 });
 
 /*
- * We don't document the ionPopover directive, we instead document
- * the $ionicPopover service
- */
+  * We don't document the ionPopover directive, we instead document
+  * the $ionicPopover service
+  */
 IonicModule
 .directive('ionPopover', [function() {
   return {
@@ -13501,182 +13506,182 @@ function($animate, $timeout, $compile) {
 * @name ionSpinner
 * @module ionic
 * @restrict E
- *
- * @description
- * The `ionSpinner` directive provides a variety of animated spinners.
- * Spinners enables you to give your users feedback that the app is
- * processing/thinking/waiting/chillin' out, or whatever you'd like it to indicate.
- * By default, the {@link ionic.directive:ionRefresher} feature uses this spinner, rather
- * than rotating font icons (previously included in [ionicons](http://ionicons.com/)).
- * While font icons are great for simple or stationary graphics, they're not suited to
- * provide great animations, which is why Ionic uses SVG instead.
- *
- * Ionic offers ten spinners out of the box, and by default, it will use the appropriate spinner
- * for the platform on which it's running. Under the hood, the `ionSpinner` directive dynamically
- * builds the required SVG element, which allows Ionic to provide all ten of the animated SVGs
- * within 3KB.
- *
- * <style>
- * .spinner-table {
- *   max-width: 280px;
- * }
- * .spinner-table tbody > tr > th, .spinner-table tbody > tr > td {
- *   vertical-align: middle;
- *   width: 42px;
- *   height: 42px;
- * }
- * .spinner {
- *   stroke: #444;
- *   fill: #444; }
- *   .spinner svg {
- *     width: 28px;
- *     height: 28px; }
- *   .spinner.spinner-inverse {
- *     stroke: #fff;
- *     fill: #fff; }
- *
- * .spinner-android {
- *   stroke: #4b8bf4; }
- *
- * .spinner-ios, .spinner-ios-small {
- *   stroke: #69717d; }
- *
- * .spinner-spiral .stop1 {
- *   stop-color: #fff;
- *   stop-opacity: 0; }
- * .spinner-spiral.spinner-inverse .stop1 {
- *   stop-color: #000; }
- * .spinner-spiral.spinner-inverse .stop2 {
- *   stop-color: #fff; }
- * </style>
- *
- * <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
- * <table class="table spinner-table" ng-app="ionic">
- *  <tr>
- *    <th>
- *      <code>android</code>
- *    </th>
- *    <td>
- *      <ion-spinner icon="android"></ion-spinner>
- *    </td>
- *  </tr>
- *  <tr>
- *    <th>
- *      <code>ios</code>
- *    </th>
- *    <td>
- *      <ion-spinner icon="ios"></ion-spinner>
- *    </td>
- *  </tr>
- *  <tr>
- *    <th>
- *      <code>ios-small</code>
- *    </th>
- *    <td>
- *      <ion-spinner icon="ios-small"></ion-spinner>
- *    </td>
- *  </tr>
- *  <tr>
- *    <th>
- *      <code>bubbles</code>
- *    </th>
- *    <td>
- *      <ion-spinner icon="bubbles"></ion-spinner>
- *    </td>
- *  </tr>
- *  <tr>
- *    <th>
- *      <code>circles</code>
- *    </th>
- *    <td>
- *      <ion-spinner icon="circles"></ion-spinner>
- *    </td>
- *  </tr>
- *  <tr>
- *    <th>
- *      <code>crescent</code>
- *    </th>
- *    <td>
- *      <ion-spinner icon="crescent"></ion-spinner>
- *    </td>
- *  </tr>
- *  <tr>
- *    <th>
- *      <code>dots</code>
- *    </th>
- *    <td>
- *      <ion-spinner icon="dots"></ion-spinner>
- *    </td>
- *  </tr>
- *  <tr>
- *    <th>
- *      <code>lines</code>
- *    </th>
- *    <td>
- *      <ion-spinner icon="lines"></ion-spinner>
- *    </td>
- *  </tr>
- *  <tr>
- *    <th>
- *      <code>ripple</code>
- *    </th>
- *    <td>
- *      <ion-spinner icon="ripple"></ion-spinner>
- *    </td>
- *  </tr>
- *  <tr>
- *    <th>
- *      <code>spiral</code>
- *    </th>
- *    <td>
- *      <ion-spinner icon="spiral"></ion-spinner>
- *    </td>
- *  </tr>
- * </table>
- *
- * Each spinner uses SVG with SMIL animations, however, the Android spinner also uses JavaScript
- * so it also works on Android 4.0-4.3. Additionally, each spinner can be styled with CSS,
- * and scaled to any size.
- *
- *
- * @usage
- * The following code would use the default spinner for the platform it's running from. If it's neither
- * iOS or Android, it'll default to use `ios`.
- *
- * ```html
- * <ion-spinner></ion-spinner>
- * ```
- *
- * By setting the `icon` attribute, you can specify which spinner to use, no matter what
- * the platform is.
- *
- * ```html
- * <ion-spinner icon="spiral"></ion-spinner>
- * ```
- *
- * ## Spinner Colors
- * Like with most of Ionic's other components, spinners can also be styled using
- * Ionic's standard color naming convention. For example:
- *
- * ```html
- * <ion-spinner class="spinner-energized"></ion-spinner>
- * ```
- *
- *
- * ## Styling SVG with CSS
- * One cool thing about SVG is its ability to be styled with CSS! Some of the properties
- * have different names, for example, SVG uses the term `stroke` instead of `border`, and
- * `fill` instead of `background-color`.
- *
- * ```css
- * .spinner svg {
- *   width: 28px;
- *   height: 28px;
- *   stroke: #444;
- *   fill: #444;
- * }
- * ```
- *
+  *
+  * @description
+  * The `ionSpinner` directive provides a variety of animated spinners.
+  * Spinners enables you to give your users feedback that the app is
+  * processing/thinking/waiting/chillin' out, or whatever you'd like it to indicate.
+  * By default, the {@link ionic.directive:ionRefresher} feature uses this spinner, rather
+  * than rotating font icons (previously included in [ionicons](http://ionicons.com/)).
+  * While font icons are great for simple or stationary graphics, they're not suited to
+  * provide great animations, which is why Ionic uses SVG instead.
+  *
+  * Ionic offers ten spinners out of the box, and by default, it will use the appropriate spinner
+  * for the platform on which it's running. Under the hood, the `ionSpinner` directive dynamically
+  * builds the required SVG element, which allows Ionic to provide all ten of the animated SVGs
+  * within 3KB.
+  *
+  * <style>
+  * .spinner-table {
+  *   max-width: 280px;
+  * }
+  * .spinner-table tbody > tr > th, .spinner-table tbody > tr > td {
+  *   vertical-align: middle;
+  *   width: 42px;
+  *   height: 42px;
+  * }
+  * .spinner {
+  *   stroke: #444;
+  *   fill: #444; }
+  *   .spinner svg {
+  *     width: 28px;
+  *     height: 28px; }
+  *   .spinner.spinner-inverse {
+  *     stroke: #fff;
+  *     fill: #fff; }
+  *
+  * .spinner-android {
+  *   stroke: #4b8bf4; }
+  *
+  * .spinner-ios, .spinner-ios-small {
+  *   stroke: #69717d; }
+  *
+  * .spinner-spiral .stop1 {
+  *   stop-color: #fff;
+  *   stop-opacity: 0; }
+  * .spinner-spiral.spinner-inverse .stop1 {
+  *   stop-color: #000; }
+  * .spinner-spiral.spinner-inverse .stop2 {
+  *   stop-color: #fff; }
+  * </style>
+  *
+  * <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
+  * <table class="table spinner-table" ng-app="ionic">
+  *  <tr>
+  *    <th>
+  *      <code>android</code>
+  *    </th>
+  *    <td>
+  *      <ion-spinner icon="android"></ion-spinner>
+  *    </td>
+  *  </tr>
+  *  <tr>
+  *    <th>
+  *      <code>ios</code>
+  *    </th>
+  *    <td>
+  *      <ion-spinner icon="ios"></ion-spinner>
+  *    </td>
+  *  </tr>
+  *  <tr>
+  *    <th>
+  *      <code>ios-small</code>
+  *    </th>
+  *    <td>
+  *      <ion-spinner icon="ios-small"></ion-spinner>
+  *    </td>
+  *  </tr>
+  *  <tr>
+  *    <th>
+  *      <code>bubbles</code>
+  *    </th>
+  *    <td>
+  *      <ion-spinner icon="bubbles"></ion-spinner>
+  *    </td>
+  *  </tr>
+  *  <tr>
+  *    <th>
+  *      <code>circles</code>
+  *    </th>
+  *    <td>
+  *      <ion-spinner icon="circles"></ion-spinner>
+  *    </td>
+  *  </tr>
+  *  <tr>
+  *    <th>
+  *      <code>crescent</code>
+  *    </th>
+  *    <td>
+  *      <ion-spinner icon="crescent"></ion-spinner>
+  *    </td>
+  *  </tr>
+  *  <tr>
+  *    <th>
+  *      <code>dots</code>
+  *    </th>
+  *    <td>
+  *      <ion-spinner icon="dots"></ion-spinner>
+  *    </td>
+  *  </tr>
+  *  <tr>
+  *    <th>
+  *      <code>lines</code>
+  *    </th>
+  *    <td>
+  *      <ion-spinner icon="lines"></ion-spinner>
+  *    </td>
+  *  </tr>
+  *  <tr>
+  *    <th>
+  *      <code>ripple</code>
+  *    </th>
+  *    <td>
+  *      <ion-spinner icon="ripple"></ion-spinner>
+  *    </td>
+  *  </tr>
+  *  <tr>
+  *    <th>
+  *      <code>spiral</code>
+  *    </th>
+  *    <td>
+  *      <ion-spinner icon="spiral"></ion-spinner>
+  *    </td>
+  *  </tr>
+  * </table>
+  *
+  * Each spinner uses SVG with SMIL animations, however, the Android spinner also uses JavaScript
+  * so it also works on Android 4.0-4.3. Additionally, each spinner can be styled with CSS,
+  * and scaled to any size.
+  *
+  *
+  * @usage
+  * The following code would use the default spinner for the platform it's running from. If it's neither
+  * iOS or Android, it'll default to use `ios`.
+  *
+  * ```html
+  * <ion-spinner></ion-spinner>
+  * ```
+  *
+  * By setting the `icon` attribute, you can specify which spinner to use, no matter what
+  * the platform is.
+  *
+  * ```html
+  * <ion-spinner icon="spiral"></ion-spinner>
+  * ```
+  *
+  * ## Spinner Colors
+  * Like with most of Ionic's other components, spinners can also be styled using
+  * Ionic's standard color naming convention. For example:
+  *
+  * ```html
+  * <ion-spinner class="spinner-energized"></ion-spinner>
+  * ```
+  *
+  *
+  * ## Styling SVG with CSS
+  * One cool thing about SVG is its ability to be styled with CSS! Some of the properties
+  * have different names, for example, SVG uses the term `stroke` instead of `border`, and
+  * `fill` instead of `background-color`.
+  *
+  * ```css
+  * .spinner svg {
+  *   width: 28px;
+  *   height: 28px;
+  *   stroke: #444;
+  *   fill: #444;
+  * }
+  * ```
+  *
 */
 IonicModule
 .directive('ionSpinner', function() {
